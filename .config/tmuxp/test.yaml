@@ -1,0 +1,12 @@
+session_name: '1'
+windows:
+- focus: 'true'
+  layout: 1f45,246x66,0,0{124x66,0,0,0,121x66,125,0[121x32,125,0,3,121x33,125,33,5]}
+  options: {}
+  panes:
+  - nvim .
+  - focus: 'true'
+    shell_command: cd
+  - btop
+  start_directory: /Users/marvin
+  window_name: zsh
