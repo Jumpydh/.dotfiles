@@ -19,11 +19,14 @@ return require('packer').startup(function(use)
     use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Treesitter
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use('nvim-treesitter/nvim-treesitter')
     use('nvim-treesitter/playground')
 
     -- Harpoon (C-e, C-h,t,n,s)
     use('theprimeagen/harpoon')
+
+    -- Vim be good
+    use('ThePrimeagen/vim-be-good')
 
     -- Tmux Navigator (C-h,j,k,l)
     use('christoomey/vim-tmux-navigator')
@@ -33,6 +36,9 @@ return require('packer').startup(function(use)
 
     -- Git (gx)
     use('tpope/vim-fugitive')
+
+    -- Aws
+    use({ 'kiran94/s3edit.nvim', config = true, cmd = "S3Edit"})
 
     -- Trouble (xq, xqw)
     use({
@@ -48,27 +54,25 @@ return require('packer').startup(function(use)
     })
 
     -- LSP
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            {                            -- Optional
-                'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+    use('neovim/nvim-lspconfig')
+    use('L3MON4D3/LuaSnip')
+    use('hrsh7th/nvim-cmp')
+    use('hrsh7th/cmp-nvim-lsp')
 
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
-        }
+    use('ray-x/lsp_signature.nvim')
 
-    }
+    use('williamboman/mason.nvim')
+    use('williamboman/mason-lspconfig.nvim')
+
+    use('Slotos/telescope-lsp-handlers.nvim')
+    -- use {"OmniSharp/omnisharp-vim", config = function()
+    --     vim.g.OmniSharp_server_stdio_quickload = 1
+    --     vim.g.OmniSharp_server_use_mono = 1
+    --     vim.g.enable_import_completion = true
+    -- end}
+
+    -- Autocompletion
+    use('prabirshrestha/asyncomplete.vim')
 
     -- Copilot
     use("github/copilot.vim")
@@ -84,6 +88,9 @@ return require('packer').startup(function(use)
     -- vim-surround (cs"' or ds")
     use('tpope/vim-surround')
 
+    -- nvim context
+    use('wellle/context.vim')
+
     -- Lualine
     use {
         'nvim-lualine/lualine.nvim',
@@ -91,5 +98,4 @@ return require('packer').startup(function(use)
     }
     -- Lualine Extensions
     use 'WhoIsSethDaniel/lualine-lsp-progress.nvim'
-
 end)

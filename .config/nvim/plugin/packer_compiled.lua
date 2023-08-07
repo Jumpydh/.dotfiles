@@ -85,6 +85,11 @@ _G.packer_plugins = {
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["asyncomplete.vim"] = {
+    loaded = true,
+    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/asyncomplete.vim",
+    url = "https://github.com/prabirshrestha/asyncomplete.vim"
+  },
   catppuccin = {
     loaded = true,
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/catppuccin",
@@ -94,6 +99,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["context.vim"] = {
+    loaded = true,
+    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/context.vim",
+    url = "https://github.com/wellle/context.vim"
   },
   ["copilot.vim"] = {
     loaded = true,
@@ -105,10 +115,10 @@ _G.packer_plugins = {
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
-  ["lsp-zero.nvim"] = {
+  ["lsp_signature.nvim"] = {
     loaded = true,
-    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
   },
   ["lualine-lsp-progress.nvim"] = {
     loaded = true,
@@ -171,6 +181,20 @@ _G.packer_plugins = {
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
+  ["s3edit.nvim"] = {
+    commands = { "S3Edit" },
+    config = { true },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/marvin/.local/share/nvim/site/pack/packer/opt/s3edit.nvim",
+    url = "https://github.com/kiran94/s3edit.nvim"
+  },
+  ["telescope-lsp-handlers.nvim"] = {
+    loaded = true,
+    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/telescope-lsp-handlers.nvim",
+    url = "https://github.com/Slotos/telescope-lsp-handlers.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -186,6 +210,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-be-good"] = {
+    loaded = true,
+    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/vim-be-good",
+    url = "https://github.com/ThePrimeagen/vim-be-good"
   },
   ["vim-fugitive"] = {
     loaded = true,
@@ -213,6 +242,18 @@ time([[Config for Comment.nvim]], false)
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'S3Edit', function(cmdargs)
+          require('packer.load')({'s3edit.nvim'}, { cmd = 'S3Edit', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'s3edit.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('S3Edit ', 'cmdline')
+      end})
+time([[Defining lazy-load commands]], false)
+
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

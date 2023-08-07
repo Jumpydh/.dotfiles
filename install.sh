@@ -28,7 +28,6 @@ read -p "Install tmux plugins? (y/n) " -n 1;
 echo "";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Installing tmux plugins.."
-    sudo pip3 install powerline-status
     mkdir -p ~/.tmux/plugins
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi;

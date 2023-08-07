@@ -1,0 +1,8 @@
+session_name: '1'
+windows:
+- focus: 'true'
+  options: {}
+  panes:
+  - nvim ~/Documents/
+  start_directory: /Users/marvin
+  window_name: zsh
