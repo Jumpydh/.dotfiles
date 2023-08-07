@@ -26,7 +26,7 @@ return require('packer').startup(function(use)
     use('theprimeagen/harpoon')
 
     -- Tmux Navigator (C-h,j,k,l)
-    use('christoomey/vim-tmux-navigator')
+    use('numToStr/Navigator.nvim')
 
     -- Undo Tree (<leader>u)
     use('mbbill/undotree')
