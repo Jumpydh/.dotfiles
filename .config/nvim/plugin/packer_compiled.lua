@@ -85,17 +85,10 @@ _G.packer_plugins = {
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-<<<<<<< HEAD
   ["asyncomplete.vim"] = {
     loaded = true,
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/asyncomplete.vim",
     url = "https://github.com/prabirshrestha/asyncomplete.vim"
-=======
-  ["Navigator.nvim"] = {
-    loaded = true,
-    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/Navigator.nvim",
-    url = "https://github.com/numToStr/Navigator.nvim"
->>>>>>> refs/remotes/origin/main
   },
   catppuccin = {
     loaded = true,
@@ -107,11 +100,6 @@ _G.packer_plugins = {
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["context.vim"] = {
-    loaded = true,
-    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/context.vim",
-    url = "https://github.com/wellle/context.vim"
-  },
   ["copilot.vim"] = {
     loaded = true,
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/copilot.vim",
@@ -121,6 +109,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
+  },
+  ["himalaya-vim"] = {
+    loaded = true,
+    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/himalaya-vim",
+    url = "https://git.sr.ht/~soywod/himalaya-vim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -188,6 +181,11 @@ _G.packer_plugins = {
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
   ["s3edit.nvim"] = {
     commands = { "S3Edit" },
     config = { true },
@@ -223,6 +221,11 @@ _G.packer_plugins = {
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/vim-be-good",
     url = "https://github.com/ThePrimeagen/vim-be-good"
   },
+  ["vim-dadbod"] = {
+    loaded = true,
+    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/vim-dadbod",
+    url = "https://github.com/tpope/vim-dadbod"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -232,6 +235,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/Users/marvin/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
   }
 }
 

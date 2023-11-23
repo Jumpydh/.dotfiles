@@ -28,8 +28,12 @@ return require('packer').startup(function(use)
     -- Vim be good
     use('ThePrimeagen/vim-be-good')
 
+    -- Himalaya
+    use('https://git.sr.ht/~soywod/himalaya-vim')
+
     -- Tmux Navigator (C-h,j,k,l)
-    use('numToStr/Navigator.nvim')
+    -- use('numToStr/Navigator.nvim')
+    use('christoomey/vim-tmux-navigator')
 
     -- Undo Tree (<leader>u)
     use('mbbill/undotree')
@@ -38,7 +42,7 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
 
     -- Aws
-    use({ 'kiran94/s3edit.nvim', config = true, cmd = "S3Edit"})
+    use({ 'kiran94/s3edit.nvim', config = true, cmd = "S3Edit" })
 
     -- Trouble (xq, xqw)
     use({
@@ -52,6 +56,9 @@ return require('packer').startup(function(use)
             }
         end
     })
+
+    -- Dadbod
+    use('tpope/vim-dadbod')
 
     -- LSP
     use('neovim/nvim-lspconfig')
@@ -88,8 +95,11 @@ return require('packer').startup(function(use)
     -- vim-surround (cs"' or ds")
     use('tpope/vim-surround')
 
+    -- Rust-Tools
+    use('simrat39/rust-tools.nvim')
+
     -- nvim context
-    use('wellle/context.vim')
+    -- use('wellle/context.vim')
 
     -- Lualine
     use {
