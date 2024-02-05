@@ -1,0 +1,11 @@
+session_name: '0'
+windows:
+- layout: 23b9,235x64,0,0{125x64,0,0[125x27,0,0,0,125x36,0,28,2],109x64,126,0,1}
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: btop
+  - sudo turbostat
+  - nvtop
+  start_directory: /home/a1/Downloads
+  window_name: btop

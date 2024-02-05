@@ -5,9 +5,10 @@ set -e
 
 function doSync(){
     ln -s ~/.dotfiles/.config/tmuxp/ ~/.config/
+    ln -s ~/.dotfiles/.config/tmux/ ~/.config/
     ln -s ~/.dotfiles/.config/nvim/ ~/.config/
-    ln -s ~/.dotfiles/.config/alacritty/ ~/.config/
-    ln -s ~/.dotfiles/.idevimrc ~/.idevimrc
+    # ln -s ~/.dotfiles/.config/alacritty/ ~/.config/
+    ln -s ~/.dotfiles/.ideavimrc ~/.ideavimrc
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

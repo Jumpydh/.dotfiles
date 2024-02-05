@@ -1,6 +1,11 @@
 require 'lspconfig'.omnisharp.setup {
     on_attach = function(client, bufnr)
-        require("lsp_signature").on_attach(Cfg, bufnr)
+        local cfg = {
+            hint_enable = false,
+            toggle_key = '<C-c>',
+            toggle_key_flip_floatwin_setting = true,
+        }
+        require("lsp_signature").on_attach(cfg, bufnr)
     end,
 
     filetypes = { "cs", "vb", "razor", "cshtml" },
@@ -40,11 +45,4 @@ require 'lspconfig'.omnisharp.setup {
     analyze_open_documents_only = false,
 
     cmu = { omnisharp_server_path = "/home/marvin/.local/share/nvim/mason/packages/omnisharp/omnisharp" }
-}
-
-
-Cfg = {
-    hint_enable = false,
-    toggle_key = '<C-c>',
-    toggle_key_flip_floatwin_setting = true,
 }
