@@ -49,8 +49,20 @@ return
     {
         'hrsh7th/cmp-nvim-lsp',
         config = function()
+            local cmp = require('cmp')
+            cmp.setup({
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp' }
+                }, {
+                    { name = 'buffer' }
+                })
+            })
+            require('cmp_nvim_lsp').setup()
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
             require('lspconfig')['omnisharp'].setup {
+                capabilities = capabilities
+            }
+            require('lspconfig')['tsserver'].setup {
                 capabilities = capabilities
             }
             require('lspconfig')['lua_ls'].setup {
