@@ -2,6 +2,13 @@ return
 {
     {
         'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            'https://codeberg.org/FelipeLema/cmp-async-path',
+        },
         config = function()
             local cmp = require('cmp')
             cmp.setup({
@@ -28,6 +35,12 @@ return
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' }, -- For luasnip users.
+                    {
+                        name = 'async_path',
+                        option = {
+                            -- Options go into this table
+                        },
+                    },
                     -- { name = 'vsnip' }, -- For vsnip users.
                     -- { name = 'ultisnips' }, -- For ultisnips users.
                     -- { name = 'snippy' }, -- For snippy users.
@@ -36,7 +49,6 @@ return
                 })
             })
 
-            -- Set configuration for specific filetype.
             cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
                     { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
@@ -44,36 +56,6 @@ return
                     { name = 'buffer' },
                 })
             })
-        end,
-    },
-    {
-        'hrsh7th/cmp-nvim-lsp',
-        config = function()
-            local cmp = require('cmp')
-            cmp.setup({
-                sources = cmp.config.sources({
-                    { name = 'nvim_lsp' }
-                }, {
-                    { name = 'buffer' }
-                })
-            })
-            require('cmp_nvim_lsp').setup()
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
-            require('lspconfig')['omnisharp'].setup {
-                capabilities = capabilities
-            }
-            require('lspconfig')['tsserver'].setup {
-                capabilities = capabilities
-            }
-            require('lspconfig')['lua_ls'].setup {
-                capabilities = capabilities
-            }
-        end,
-    },
-    {
-        'hrsh7th/cmp-cmdline',
-        config = function()
-            local cmp = require('cmp')
             cmp.setup.cmdline(':', {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = cmp.config.sources({
@@ -89,20 +71,4 @@ return
             })
         end,
     },
-    {
-        'https://codeberg.org/FelipeLema/cmp-async-path',
-        config = function()
-            local cmp = require('cmp')
-            cmp.setup({
-                sources = {
-                    {
-                        name = 'async_path',
-                        option = {
-                            -- Options go into this table
-                        },
-                    },
-                },
-            })
-        end,
-    }
 }
