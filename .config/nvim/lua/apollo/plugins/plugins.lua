@@ -11,6 +11,15 @@ return {
         end,
     },
 
+    {
+        "lervag/vimtex",
+        lazy = false, -- we don't want to lazy load VimTeX
+        -- tag = "v2.15", -- uncomment to pin to a specific release
+        init = function()
+            -- VimTeX configuration goes here, e.g.
+            vim.g.vimtex_view_method = "zathura"
+        end
+    },
 
     -- Vim be good
     'ThePrimeagen/vim-be-good',
@@ -34,7 +43,7 @@ return {
                     changedelete = { text = '~' },
                     untracked    = { text = '┆' },
                 },
-                signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`
+                signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`
                 numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
                 linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
                 word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
@@ -54,7 +63,7 @@ return {
                 current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
                 sign_priority                = 6,
                 update_debounce              = 100,
-                status_formatter             = nil, -- Use default
+                status_formatter             = nil,   -- Use default
                 max_file_length              = 40000, -- Disable if file is longer than this (in lines)
                 preview_config               = {
                     -- Options passed to nvim_open_win
@@ -63,9 +72,6 @@ return {
                     relative = 'cursor',
                     row = 0,
                     col = 1
-                },
-                yadm                         = {
-                    enable = false
                 },
             }
         end
@@ -76,7 +82,14 @@ return {
     'tpope/vim-dadbod',
 
     -- LSP
-    'L3MON4D3/LuaSnip',
+    {
+        'L3MON4D3/LuaSnip',
+        dependencies = { "rafamadriz/friendly-snippets" },
+        config = function()
+            require('luasnip').setup({ })
+            require('luasnip.loaders.from_vscode').lazy_load()
+        end
+    },
 
     -- use {"OmniSharp/omnisharp-vim", config = function()
     --     vim.g.OmniSharp_server_stdio_quickload = 1
@@ -88,7 +101,7 @@ return {
     'prabirshrestha/asyncomplete.vim',
 
     -- Copilot
-    'github/copilot.vim',
+    -- 'github/copilot.vim',
 
     -- Comments (gcc)
     {

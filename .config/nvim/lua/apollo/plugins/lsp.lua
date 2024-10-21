@@ -14,6 +14,25 @@ return {
                     capabilities = capabilities
                 end
             }
+            lspconfig.markdown_oxide.setup({
+                -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
+                -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
+                capabilities = vim.tbl_deep_extend(
+                    'force',
+                    capabilities,
+                    {
+                        workspace = {
+                            didChangeWatchedFiles = {
+                                dynamicRegistration = true,
+                            },
+                        },
+                    }
+                ),
+                on_attach = function(client, bufnr)
+                    require("lsp_signature").on_attach(Cfg, bufnr)
+                    capabilities = capabilities
+                end
+            })
             lspconfig.ansiblels.setup {
                 on_attach = function(client, bufnr)
                     require("lsp_signature").on_attach(Cfg, bufnr)
@@ -27,6 +46,12 @@ return {
                 end
             }
             lspconfig.lua_ls.setup {
+                on_attach = function(client, bufnr)
+                    require("lsp_signature").on_attach(Cfg, bufnr)
+                    capabilities = capabilities
+                end
+            }
+            lspconfig.jdtls.setup {
                 on_attach = function(client, bufnr)
                     require("lsp_signature").on_attach(Cfg, bufnr)
                     capabilities = capabilities
@@ -73,7 +98,7 @@ return {
                 -- },
             }
 
-            lspconfig.tsserver.setup {
+            lspconfig.ts_ls.setup {
                 on_attach = function(client, bufnr)
                     require("lsp_signature").on_attach(Cfg, bufnr)
                     capabilities = capabilities
@@ -154,7 +179,6 @@ return {
     {
         "williamboman/mason.nvim",
         config = function()
-
             require("mason").setup({
                 profile = "default",
                 profile_dir = "~/.config/mason",

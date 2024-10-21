@@ -7,7 +7,8 @@ return
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
-            'https://codeberg.org/FelipeLema/cmp-async-path',
+            'saadparwaiz1/cmp_luasnip'
+            -- 'https://codeberg.org/FelipeLema/cmp-async-path',
         },
         config = function()
             local cmp = require('cmp')
@@ -33,14 +34,21 @@ return
                     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                 }),
                 sources = cmp.config.sources({
-                    { name = 'nvim_lsp' },
-                    { name = 'luasnip' }, -- For luasnip users.
                     {
-                        name = 'async_path',
-                        option = {
-                            -- Options go into this table
-                        },
+                        name = 'nvim_lsp',
+                        options = {
+                            markdown_oxide = {
+                                keyword_pattern = [[\(\k\| \|\/\|#\)\+]]
+                            }
+                        }
                     },
+                    { name = 'luasnip' }, -- For luasnip users.
+                    -- {
+                    --     name = 'async_path',
+                    --     option = {
+                    --         -- Options go into this table
+                    --     },
+                    -- },
                     -- { name = 'vsnip' }, -- For vsnip users.
                     -- { name = 'ultisnips' }, -- For ultisnips users.
                     -- { name = 'snippy' }, -- For snippy users.

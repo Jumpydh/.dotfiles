@@ -27,9 +27,14 @@ return
                 sections = {
                     lualine_a = { 'mode' },
                     lualine_b = { 'branch', 'diff', 'diagnostics' },
-                    lualine_c = { 'filename', 'lsp_progress' },
+                    lualine_c = {
+                        function()
+                            -- invoke `progress` here.
+                            return require('lsp-progress').progress()
+                        end,
+                    },
                     lualine_x = { 'encoding', 'fileformat', 'filetype' },
-                    lualine_y = { 'progress' },
+                    -- lualine_y = { 'progress' },
                     lualine_z = { 'location' }
                 },
                 inactive_sections = {
@@ -49,6 +54,9 @@ return
     },
     {
         -- Lualine Extensions
-        'WhoIsSethDaniel/lualine-lsp-progress.nvim',
+        'linrongbin16/lsp-progress.nvim',
+        config = function()
+            require('lsp-progress').setup()
+        end
     }
 }
